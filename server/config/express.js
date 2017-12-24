@@ -11,6 +11,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(logger('dev'));
 
+app.set('trust proxy', true);
 app.use('/api', [UserRoutes]);
 
 export default app;

@@ -31,8 +31,8 @@ const loginUser = (req, res, next) => {
   jwt.sign({ email, password }, 'SECRETKEY', { expiresIn: '2h' }, (error, TOKEN) => {
     if (error) return res.status(500).json({ error: 'ERROR SIGNING THE TOKEN' });
     res.cookie('access_token', TOKEN, {
-      expires: new Date(Date.now() + 10000000),
-      httpOnly: true,
+      maxAge: new Date(Date.now() + 10000000),
+      httpOnly: false,
     });
     return res.status(200).json({ message: 'User logged with success' });
   });

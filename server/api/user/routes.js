@@ -5,7 +5,6 @@ import { UserRoutes } from '../index';
 
 // UTILS
 export function verifyToken(req, res, next) {
-  console.log(req.cookies);
   if (!req.cookies.access_token) {
     return res.status(401).json({ error: 'UNAUTHORIZED, TOKEN IS EMPTY' });
   }
