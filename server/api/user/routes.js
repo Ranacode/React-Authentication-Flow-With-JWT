@@ -5,10 +5,11 @@ import { UserRoutes } from '../index';
 
 // UTILS
 export function verifyToken(req, res, next) {
-  if (!req.headers.authorization) {
+  console.log(req.cookies);
+  if (!req.cookies.access_token) {
     return res.status(401).json({ error: 'UNAUTHORIZED, TOKEN IS EMPTY' });
   }
-  const token = req.headers.authorization.split(' ')[1];
+  const token = req.cookies.access_token;
   jwt.verify(token, 'SECRETKEY', (error, userData) => {
     if (error) return res.status(422).json({ error });
     req.user = userData;
