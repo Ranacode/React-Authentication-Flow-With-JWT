@@ -4,8 +4,7 @@ import Publication from "./Publication";
 
 class Publications extends Component {
   state = {
-    publications: [],
-    disabled: true
+    publications: []
   };
 
   getPublications = () => {
@@ -43,10 +42,10 @@ class Publications extends Component {
           */
   };
   render() {
-    const { publications, disabled } = this.state;
+    const { publications } = this.state;
     return (
       <div className="publications">
-        <button disabled={disabled} onClick={this.getPublications}>
+        <button disabled={this.props.disabled} onClick={this.getPublications}>
           Publicaciones
         </button>
         <ul>
@@ -64,5 +63,9 @@ class Publications extends Component {
     );
   }
 }
+
+Publications.defaultProps = {
+  disabled: true
+};
 
 export default Publications;

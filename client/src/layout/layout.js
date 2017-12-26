@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 class Layout extends Component {
-  state = {};
+  state = {
+    logged: false
+  };
 
   logOut = () => {
     console.log("logout");
@@ -12,7 +14,10 @@ class Layout extends Component {
       url: "api/user/logout",
       withCredentials: true
     })
-      .then(response => console.log(response))
+      .then(response => {
+        console.log(response);
+        this.setState({ logged: false });
+      })
       .catch(error => console.log(error.response));
   };
 
@@ -24,7 +29,7 @@ class Layout extends Component {
             <h3 className="nav_brand">
               <Link to="/">Publications</Link>
             </h3>
-            {this.props.logged ? (
+            {!this.state.logged ? (
               <ul>
                 <li>
                   <Link to="/login">Login</Link>
@@ -52,9 +57,5 @@ class Layout extends Component {
     );
   }
 }
-
-Layout.defaultProps = {
-  logged: false
-};
 
 export default Layout;

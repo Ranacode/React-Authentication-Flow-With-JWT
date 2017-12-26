@@ -87,7 +87,7 @@ class LoginForm extends Component {
     return (
       <div className="formContainer">
         {redirect ? (
-          <Redirect to="/" />
+          <Redirect to={{ pathname: "/", state: { disabled: false } }} />
         ) : (
           <form onSubmit={this.onSubmit}>
             <input
