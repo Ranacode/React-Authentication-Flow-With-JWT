@@ -20,4 +20,5 @@ const router = new Router();
 
 router.get('/user/publications', verifyToken, UserControllers.getUserPublications);
 router.post('/user/login', UserControllers.loginUser);
+router.post('/user/logout', UserControllers.logOutUser);
 export default router;

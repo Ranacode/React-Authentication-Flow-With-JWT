@@ -1,6 +1,58 @@
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+header.container {
+  padding: 0.5em;
+  background-color: #fafafa;
+  line-height: 101%;
+  border-bottom: 1px solid gainsboro;
+}
+
+header.container > nav.navbar {
+  padding: 0 0.7em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 1.1em;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+nav.navbar > h3.nav_brand {
+  color: gray;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li {
+  display: inline;
+  padding: 0.4em;
+  margin: 0.2em;
+}
+
+.formContainer {
+  margin-top: 1em;
+  vertical-align: middle;
+  text-align: center;
+}
+
 form {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 form input,
@@ -14,7 +66,7 @@ form span {
   color: red;
   margin: 0.1em;
   padding: 0.2em;
-  font-size: 15px;
+  font-size: 0.7em;
 }
 
 .publications {

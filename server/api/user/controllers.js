@@ -38,4 +38,12 @@ const loginUser = (req, res, next) => {
   });
 };
 
-export { getUserPublications, loginUser };
+const logOutUser = (req, res, next) => {
+  res.clearCookie('access_token', req.cookies.access_token, {
+    maxAge: new Date(Date.now() + 10000000),
+    httpOnly: false,
+  });
+  return res.status(200).json({ message: 'Cookie deleted' });
+};
+
+export { getUserPublications, loginUser, logOutUser };
