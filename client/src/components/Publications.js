@@ -53,6 +53,7 @@ class Publications extends Component {
             return (
               <Publication
                 key={index}
+                src={publication.image}
                 text={publication.text}
                 createdAt={publication.createdAt}
               />

@@ -5,17 +5,17 @@ const getUserPublications = (req, res, next) => {
     {
       text: 'Ayer me fui a la playa y volví quemado, denme like para recuperarme',
       createdAt: new Date(),
-      file: null,
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/vladarbatov/128.jpg',
     },
     {
       text: '¿Como securizaremos nuestra aplicación web? adelante, comentad',
       createdAt: new Date(),
-      file: null,
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/adellecharles/128.jpg',
     },
     {
       text: 'Vendo suegra de segunda mano, muerde solo los domingos',
       createdAt: new Date(),
-      file: null,
+      image: 'https://s3.amazonaws.com/uifaces/faces/twitter/vladarbatov/128.jpg',
     },
   ];
 

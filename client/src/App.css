@@ -79,13 +79,30 @@ form span {
   padding: 0.7em;
   margin: 0.5% auto;
   list-style: none;
+  width: 65%;
 }
 
-.publications ul publication {
+.publications .publication {
   padding: 0.5em;
   color: green;
   border: 1px solid gainsboro;
   background-color: #fafafa;
+  display: flex;
+  align-items: center;
+  margin: 0 auto 12px auto;
+}
+
+.publication img {
+  flex: 0 0 96px;
+  width: 96px;
+  height: 96px;
+  margin: 0;
+}
+
+.publication p.description {
+  flex: 1;
+  margin-left: 18px;
+  padding: 12px;
 }
 
 .sk-fading-circle {
