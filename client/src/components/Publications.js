@@ -41,25 +41,27 @@ class Publications extends Component {
           .catch(error => console.error(error));
           */
   };
+
+  showPublications = () => {
+    return this.state.publications.map((publication, index) => {
+      return (
+        <Publication
+          key={index}
+          src={publication.image}
+          text={publication.text}
+          createdAt={publication.createdAt}
+        />
+      );
+    });
+  };
+
   render() {
-    const { publications } = this.state;
     return (
       <div className="publications">
         <button disabled={this.props.disabled} onClick={this.getPublications}>
           Publicaciones
         </button>
-        <ul>
-          {publications.map((publication, index) => {
-            return (
-              <Publication
-                key={index}
-                src={publication.image}
-                text={publication.text}
-                createdAt={publication.createdAt}
-              />
-            );
-          })}
-        </ul>
+        <ul>{this.props.logged ? this.showPublications() : ""}</ul>
       </div>
     );
   }

@@ -1,19 +1,47 @@
 import React, { Component } from "react";
-import LoginForm from "./LoginForm";
+import axios from "axios";
+import Navbar from "./Navbar";
 import Publications from "./Publications";
 
-const Home = props => {
-  const { disabled } = props.location.state || true;
-  return (
-    <div>
-      <div className="formContainer">
-        <h2>¡Entra en nuestra aplicación!</h2>
-        <h5>Echale un vistazo a las últimas publicaciones</h5>
-      </div>
+class Home extends Component {
+  state = {
+    logged: false,
+    disabled: true
+  };
 
-      <Publications disabled={disabled} />
-    </div>
-  );
-};
+  componentDidMount() {
+    if (document.cookie) {
+      this.setState({ logged: true, disabled: false });
+    }
+  }
+
+  logOut = () => {
+    axios({
+      method: "POST",
+      url: "api/user/logout",
+      withCredentials: true
+    })
+      .then(response => {
+        this.setState({ logged: false, disabled: true });
+      })
+      .catch(error => console.log(error.response));
+  };
+  render() {
+    console.log(this.state);
+    return (
+      <div>
+        <Navbar logged={this.state.logged} logOut={this.logOut} />
+        <div className="container-basic">
+          <h2>¡Entra en nuestra aplicación!</h2>
+          <h5>Echale un vistazo a las últimas publicaciones</h5>
+        </div>
+        <Publications
+          logged={this.state.logged}
+          disabled={this.state.disabled}
+        />
+      </div>
+    );
+  }
+}
 
 export default Home;
