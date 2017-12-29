@@ -27,7 +27,6 @@ class Home extends Component {
       .catch(error => console.log(error.response));
   };
   render() {
-    console.log(this.state);
     return (
       <div>
         <Navbar logged={this.state.logged} logOut={this.logOut} />
